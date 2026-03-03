@@ -1,0 +1,306 @@
+@import "tailwindcss";
+
+:root {
+  --primary-blue: #0072ff;
+  --primary-green: #00c6ff;
+  --gradient-bg: linear-gradient(135deg, #0cebeb, #20e3b2, #29ffc6);
+  --text-color: #333;
+  --card-bg: rgba(255, 255, 255, 0.95);
+}
+
+@theme inline {
+  --font-sans: var(--font-be-vietnam-pro), sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--gradient-bg);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeInComment {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes float {
+  0% { transform: translateY(100vh) rotate(0deg) scale(0.8); opacity: 0; }
+  10% { opacity: 0.5; }
+  90% { opacity: 0.5; }
+  100% { transform: translateY(-100px) rotate(360deg) scale(1.2); opacity: 0; }
+}
+
+/* Base custom classes translated from original CSS */
+.container-custom {
+  width: 90%;
+  max-width: 800px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.card {
+  background: var(--card-bg);
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.title-h1 {
+  color: #0082c8;
+  margin-bottom: 20px;
+  font-size: 32px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #11998e, #0082c8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.illustration {
+  width: 100%;
+  max-width: 500px;
+  height: 300px;
+  background: #e0f2f1;
+  margin: 0 auto 20px auto;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #999;
+  font-size: 14px;
+  border: 2px dashed #b2dfdb;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.illustration:hover {
+  border-color: #38ef7d;
+  background: #e0f7fa;
+}
+
+.illustration img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+  transition: transform 0.5s ease;
+}
+
+.illustration:hover img {
+  transform: scale(1.05);
+}
+
+.text-p {
+  font-size: 18px;
+  color: #444;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+.highlight {
+  font-weight: 700;
+  color: #0082c8;
+  background: linear-gradient(90deg, #0072ff, #00c6ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 20px;
+}
+
+.btn-primary {
+  margin-top: 20px;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(90deg, #11998e, #38ef7d);
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(17, 153, 142, 0.4);
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 8px 20px rgba(17, 153, 142, 0.6);
+}
+
+.hidden-element {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s filter, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.slide-left {
+  transform: translateX(-50px);
+}
+
+.slide-right {
+  transform: translateX(50px);
+}
+
+.scale-up {
+  transform: scale(0.8);
+}
+
+.show-element {
+  opacity: 1;
+  transform: translate(0) scale(1) !important;
+}
+
+.comment-section {
+  background: var(--card-bg);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.5);
+  text-align: left;
+}
+
+.comment-section h2 {
+  color: #0082c8;
+  margin-bottom: 25px;
+  text-align: center;
+  font-size: 26px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #555;
+}
+
+.form-group input, 
+.form-group textarea {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 16px;
+  transition: all 0.3s;
+  background: rgba(255,255,255,0.8);
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+  outline: none;
+  border-color: #38ef7d;
+  box-shadow: 0 0 10px rgba(56, 239, 125, 0.2);
+  background: white;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.comments-list {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.comment-item {
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  border-left: 6px solid #11998e;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  animation: fadeInComment 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.comment-item h4 {
+  color: #0082c8;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.comment-date {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 12px;
+}
+
+.comment-item p {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+.footer-text {
+  text-align: center;
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  color: #fff;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.floating-shapes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.shape {
+  position: absolute;
+  opacity: 0.5;
+  animation: float 10s infinite linear;
+}
+
+@media (max-width: 600px) {
+  .title-h1 { font-size: 24px; }
+  .card { padding: 30px 20px; }
+  .comment-section { padding: 30px 20px; }
+}
