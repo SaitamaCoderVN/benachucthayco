@@ -265,7 +265,7 @@ export default function App() {
           </div>
       </div>
       
-      <div className="footer-text">Thiết kế với 💚 và 💙 | Học Sinh</div>
+      <div className="footer-text">Thiết kế với toàn bộ tâm huyết 💚 và 💙 lòng biết ơn sâu sắc | Luyn Na</div>
     </>
   );
 }
